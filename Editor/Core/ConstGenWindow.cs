@@ -215,6 +215,7 @@ namespace ConstGen
                             GUI.backgroundColor = genOnReloadColor;
                             if ( GL.Button( new GUIContent("ReGen On Missing", "Automatically re-generates the constants file is none is present."), style ) ) {
                                 settings.regenerateOnMissing = !settings.regenerateOnMissing;
+                                EditorUtility.SetDirty( settings );
                             } 
                         EGL.EndHorizontal();
 
@@ -222,6 +223,7 @@ namespace ConstGen
                             GUI.backgroundColor = updateOnReloadColor;
                             if ( GL.Button( new GUIContent("Update On Reload", "Automatically re-generates the constants on editor recompile if any changes are detected."), style) ) {
                                 settings.updateOnReload = !settings.updateOnReload;
+                                EditorUtility.SetDirty( settings );
                             } 
                         EGL.EndHorizontal();
 
