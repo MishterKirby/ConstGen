@@ -234,7 +234,7 @@ namespace ConstGen
 
             GUI.backgroundColor = Color.gray;
             GUI.contentColor = Color.white * 10;
-            showFoldOut = EGL.BeginFoldoutHeaderGroup( showFoldOut, "Generate Generator Script" );
+            showFoldOut = EGL.BeginFoldoutHeaderGroup( showFoldOut, "Create Generator Script" );
 
                 if ( showFoldOut )
                 {
@@ -289,7 +289,7 @@ namespace ConstGen
                             if ( GL.Button( "Create", new GUIStyle(GUI.skin.button) { fontStyle = FontStyle.Bold, fontSize = 12 }, 
                                 GL.Width(75), GL.Height(30) ) )
                             {
-                                if ( generatorName == string.Empty || outputFileName == string.Empty  )
+                                if ( generatorName == string.Empty || outputFileName == string.Empty || generatorName == null || outputFileName == null  )
                                 {
                                     Debug.LogWarning( "Fill out all the fields" );
                                 } 
