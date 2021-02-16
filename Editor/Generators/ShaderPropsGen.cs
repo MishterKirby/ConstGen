@@ -282,7 +282,7 @@ namespace ConstGen
                                 {
                                     // write properties
                                     content.WriteIndentedFormatLine(indentCount, 
-                                        "public const string {0} = \"{1}\";", 
+                                        "public const string _{0} = \"{1}\";", 
                                             generator.MakeIdentifier(propertyName).Remove(0,1), 
                                                 generator.EscapeDoubleQuote(propertyName));
                                 }
