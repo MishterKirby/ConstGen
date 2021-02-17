@@ -20,10 +20,10 @@ Unity Constants Generator
 but why the use for this, you ask?<br/>
 why not just use magic strings and simply write it like this:<br/>
 
- `animator.SetFloat("Speed", 5);`ノ( ゜-゜ノ)
+ `animator.SetFloat("XMovement", 5);`ノ( ゜-゜ノ)
 
 Well....<br/>
-Because screw this! (╯°□°）╯︵ `;)5 ,"deepS"(taolFteS.rotamina`
+Because screw this! (╯°□°）╯︵ `;(ϛ ',,ʇuǝɯǝʌoWX,,)ʇɐolℲʇǝS˙ɹoʇɐɯᴉuɐ`
 
 <br/>
 
