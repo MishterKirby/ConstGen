@@ -29,9 +29,10 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 
 - - - -
 
-## Constant Generation ##
+## Features ##
 
-### - ConstGen can generate the type of unity constants for: ###
+### [ Constants Generation ] ###
+#### ConstGen can generate the type of unity constants for: ####
 - [x] Layers
 - [x] Tags
 - [x] Sorting Layers
@@ -41,8 +42,10 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 - [x] Animator Controller States
 - [x] Nav Mesh Areas
 
-## Constant Generator Creation ##
-### - ConstGen can also create generator scripts ####
+### [ Constant Generator Creation ] ###
+
+#### ConstGen can also create generator scripts ####
+
 ![generator generation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/create%20generator.PNG)
 
 You can create generator scripts like the ones ConstGen use to generate the constants properties you want through script. 
