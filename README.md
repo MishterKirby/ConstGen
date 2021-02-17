@@ -33,7 +33,6 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 
 ### ( Constants Generation ) ###
 
-[![Donate](https://www.paypal.com/donate?hosted_button_id=RTBZPSYEFNUGG)
 #### ConstGen can generate the type of unity constants for: ####
 - [x] Layers
 - [x] Tags
