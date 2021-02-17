@@ -1,3 +1,5 @@
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=RTBZPSYEFNUGG)
+
 # Const Generator
 Unity Constants Generator
 
@@ -32,6 +34,8 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 ## Features ##
 
 ### ( Constants Generation ) ###
+
+[![Donate](https://www.paypal.com/donate?hosted_button_id=RTBZPSYEFNUGG)
 #### ConstGen can generate the type of unity constants for: ####
 - [x] Layers
 - [x] Tags
