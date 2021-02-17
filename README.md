@@ -108,3 +108,7 @@ Created generators are generated in (ConstGen/Editor/Generated Generators)
 ![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/usage.png)
 
 Import the `ConstGenConstants` namespace on which the constants are in and from there you can access them.
+
+- - - -
+
+![meme](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/no%20magic%20strings%20meme.png)
