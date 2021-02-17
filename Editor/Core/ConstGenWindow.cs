@@ -248,8 +248,14 @@ namespace ConstGen
 
             GUI.backgroundColor = Color.gray;
             GUI.contentColor = Color.white * 10;
-            showFoldOut = EGL.BeginFoldoutHeaderGroup( showFoldOut, "Create Generator Script" );
 
+// check for unity versions using conditional directives
+// NOTE: there is no "BeginFoldoutHeaderGroup" in below 2019.1
+ #if UNITY_2019_OR_NEWER
+    showFoldOut = EGL.BeginFoldoutHeaderGroup( showFoldOut, "Create Generator Script" );
+#else
+    showFoldOut = EGL.Foldout( showFoldOut, "Create Generator Script" );
+ #endif
                 if ( showFoldOut )
                 {
                     GL.Space(5);
@@ -317,8 +323,11 @@ namespace ConstGen
                     GL.Space(1);
                     EGL.EndHorizontal();
                 }
-            EGL.EndFoldoutHeaderGroup();
 
+ #if UNITY_2019_OR_NEWER
+    EGL.EndFoldoutHeaderGroup();
+ #endif
+ 
             if ( EditorGUI.EndChangeCheck() )
             {
                 EditorUtility.SetDirty( settings );
@@ -373,6 +382,18 @@ namespace ConstGen
             r.x-=2;
             r.width +=6;
             EditorGUI.DrawRect(r, color);        
+        }
+
+        private bool Is2018()
+        {
+            string v = Application.unityVersion;
+            v = v.Remove( v.IndexOf('.') , v.Length - v.IndexOf('.') );
+
+            if ( v == "2018" ) {
+                return true;
+            }
+
+            return false;
         } 
     }   
 }
