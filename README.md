@@ -88,6 +88,7 @@ Constants files are generated at (ConstGen/Generated Files) directory.
 
 NOTE: Don't move around the files inside the ConstGen folder it will break the generators but you can move the ConstGen folder itself at any Directory in the Assets.
 
+ANOTHER NOTE: In the event of for some reason the generated files has an error and [Force Generate] won't delete the file, you can manually delete the file itself in the it's folder with the **[ReGen On Missing]** turned on and the generator/s will try to generate a new file.
 
 
 ### ( Creating Generators ) ###
