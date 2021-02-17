@@ -1,5 +1,3 @@
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=RTBZPSYEFNUGG)
-
 # Const Generator
 Unity Constants Generator
 
@@ -102,3 +100,9 @@ Created generators are generated in (ConstGen/Editor/Generated Generators)
 ![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/usage.png)
 
 Import the `ConstGenConstants` namespace on which the constants are in and from there you can access them.
+
+- - - -
+
+#### If you like this asset, a donation of any value is very much appreciated :)
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=RTBZPSYEFNUGG)
