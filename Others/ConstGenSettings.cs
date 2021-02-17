@@ -84,4 +84,6 @@ public class ConstGenSettings : ScriptableObject
         }
     }
     [ReadOnly] public List<StatesCTRLR> _ANIMSTATES;
+    // -----------------------------------------------------------------------------
+    [ReadOnly] public List<string> _NAVAREAS = new List<string>();
 }

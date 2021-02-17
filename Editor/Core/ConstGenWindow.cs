@@ -22,7 +22,7 @@ namespace ConstGen
         private static void ShowWindow() {
             window = GetWindow<ConstGenWindow>();
             window.titleContent = new GUIContent("Const Generator");
-            window.minSize = new Vector2( 300, 398 );
+            window.minSize = new Vector2( 300, 425 );
             // window.maxSize = new Vector2( 300, 400 );
             window.Show();
         }
@@ -150,6 +150,20 @@ namespace ConstGen
                 if ( DrawForceGenButton() )
                 {
                     AnimStatesGen.ForceGenerate();
+                    window.Close();   
+                }                
+            EndGUI();
+            // -------------------------------------------------------------------------------------
+            StartGUI( "Nav Areas" );
+                if ( DrawGenButton() )
+                {
+                    NavAreasGen.Generate();
+                    window.Close();
+                }
+
+                if ( DrawForceGenButton() )
+                {
+                    NavAreasGen.ForceGenerate();
                     window.Close();   
                 }                
             EndGUI();

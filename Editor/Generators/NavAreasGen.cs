@@ -7,38 +7,39 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEngine.AI;
 
 namespace ConstGen
 {
     [InitializeOnLoad]
-    public class TagsGen 
+    public class NavAreasGen
     {
         #region Variables =================================================================================================================
-        private const string FileName = "_TAGS";
+        private const string FileName = "_NAVAREAS";
         
         /// <summary>
         /// An instance of the generator class itself
         /// it's main purpose is to instantiate and cache a ConstantGenerator as it's property
         /// to be used for generating the code
         /// </summary>
-        private static TagsGen instance;
+        private static NavAreasGen instance;
         private ConstantGenerator generator_ = new ConstantGenerator();
         private static ConstantGenerator generator { get { return instance.generator_; } }
         private static string FilePath { get { return string.Format(ConstantGenerator.FilePathFormat, generator.GetOutputPath(), FileName); } }
         
         private bool regenerateOnMissing;
         private bool updateOnReload;
-        private List<string> newTags;
-        private List<string> oldTags;
+        private List<string> newAreas;
+        private List<string> oldAreas;
         #endregion Variables ===============================================================================================================
 
         // static constructor
         // get's called with the class when [InitializeOnLoad] happens
-        static TagsGen()
+        static NavAreasGen()
         {
             CreateGeneratorInsance();
             RetrieveSettingsData();
-
+                
             if ( !File.Exists(FilePath) ) // check if file exist
             {
                 if ( instance.regenerateOnMissing )
@@ -55,8 +56,9 @@ namespace ConstGen
             else 
             {
                 // file exist and check  if we can updateOnReload
-                if ( instance.updateOnReload )
+                if ( instance.updateOnReload ) {
                     UpdateFile();
+                }
             }
         }
 
@@ -66,7 +68,7 @@ namespace ConstGen
 
             // create self instance of the class
             // then create and cache the ConstantGenerator instance to it's property
-            instance = new TagsGen();
+            instance = new NavAreasGen();
             instance.generator_ = new ConstantGenerator();
         }
 
@@ -76,7 +78,7 @@ namespace ConstGen
 
             instance.regenerateOnMissing = cgs.regenerateOnMissing;
             instance.updateOnReload = cgs.updateOnReload;
-            instance.oldTags = cgs._TAGS;
+            instance.oldAreas = cgs._NAVAREAS;
         }
 
         /// <summary>
@@ -85,16 +87,16 @@ namespace ConstGen
         public static void Generate()
         {
             CreateGeneratorInsance();
-            instance.newTags = RetriveValues();
+            instance.newAreas = RetriveValues();
 
             // store the new properties to SO
-            ConstantGenerator.GetSettingsFile()._TAGS.Clear();
-            ConstantGenerator.GetSettingsFile()._TAGS = instance.newTags;
+            ConstantGenerator.GetSettingsFile()._NAVAREAS.Clear();
+            ConstantGenerator.GetSettingsFile()._NAVAREAS = instance.newAreas;
 
             // set SO to be dirty to be saved
             EditorUtility.SetDirty( ConstantGenerator.GetSettingsFile() );
 
-            GenerateCode();
+            GenerateCode(); 
         }
 
         /// <summary>
@@ -109,10 +111,11 @@ namespace ConstGen
                 AssetDatabase.DeleteAsset( FilePath );
                 AssetDatabase.Refresh();
             }
-            else
+            else 
             {
                 Debug.LogWarning( "[ " + FileName + " ] Force Generate Failed, trying to delete an non existent file" );                
             }
+
         }
 
         /// <summary>
@@ -122,11 +125,11 @@ namespace ConstGen
         {
             if (Application.isPlaying) return;
 
-            instance.newTags = RetriveValues();
-            List<string> differences = instance.newTags.Except( instance.oldTags ).ToList();
+            instance.newAreas = RetriveValues();
+            List<string> differences = instance.newAreas.Except( instance.oldAreas ).ToList();
 
-            if (differences.Count > 0 || instance.newTags.Count != instance.oldTags.Count)
-                Generate(); 
+            if (differences.Count > 0 || instance.newAreas.Count != instance.oldAreas.Count)
+                Generate();
         }
 
         private string GetScriptName()
@@ -141,7 +144,7 @@ namespace ConstGen
 
         static List<string> RetriveValues()
         {
-            return InternalEditorUtility.tags.ToList();
+            return GameObjectUtility.GetNavMeshAreaNames().ToList();
         }
 
         private static void GenerateCode()
@@ -164,10 +167,12 @@ namespace ConstGen
                 {
                     using (new CurlyBrackets(content, "public static class " + FileName, indentCount))
                     {
-                        foreach (string property in instance.newTags)
+                        foreach (string name in instance.newAreas)
                         {
-                            content.WriteIndentedFormatLine(indentCount, "public const string {0} = @\"{1}\";", 
-                                generator.MakeIdentifier(property), generator.EscapeDoubleQuote(property));
+                            content.WriteIndentedFormatLine(indentCount, 
+                                "public const int {0} = {1};", 
+                                    generator.MakeIdentifier(name), NavMesh.GetAreaFromName( generator.EscapeDoubleQuote(name) ));
+                                    
                         }
                     }                    
                 }
@@ -175,8 +180,5 @@ namespace ConstGen
         }
     }
 }
-
-
-
 
 
