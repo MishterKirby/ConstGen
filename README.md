@@ -31,7 +31,7 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 
 ## Features ##
 
-### [ Constants Generation ] ###
+### ( Constants Generation ) ###
 #### ConstGen can generate the type of unity constants for: ####
 - [x] Layers
 - [x] Tags
@@ -42,10 +42,59 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 - [x] Animator Controller States
 - [x] Nav Mesh Areas
 
-### [ Constant Generator Creation ] ###
+<br/>
 
+### ( Constant Generator Creation ) ###
 #### ConstGen can also create generator scripts ####
+![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/generator%20creation.png)
 
-![generator generation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/create%20generator.PNG)
+- - - -
+
+## Usage ##
+
+### ( Generating Constants ) ###
+![generating constants](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/Generating%20Constants.png)
+
+### Settings ###
+
+**[ReGen On Missing]** - Sets the generator to generate it's constants file if it detected none exists. <br/>
+NOTE: the [Force Generate] button depends on this setting as it will delete the constants file and let the generator create a new one.
+
+**[Update On Reload]** - Sets the generator to automatically generate/update it's constants file on editor recompile if any changes is detected within the unity editor, e.g adding new layers or deleting animator controller paramters.
+
+NOTE: All generator update checks are are done upon editor recompile so the generator won't trigger script generate and recompile every after little change you want on the editor constants. 
+
+### Generation ###
+
+**[Generate]** - Updates the type of constants or generates the file is none is present.
+
+**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one. 
+
+**[Generate ALL] & [Force Generate ALL]** - you know.....just like the generate & force generate buttons but instead triggers all generators.
+
+### Constants Files/Generated Files ###
+![generating constants](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/generated%20files.PNG)
+
+Constants files are generated at (ConstGen/Generated Files) directory.
+
+NOTE: Don't move around the files inside the ConstGen folder it will break the generators but you can move the ConstGen folder itself at any Directory in the Assets.
+
+
+
+### ( Creating Generators ) ###
+![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/creating%20generators.PNG)
 
 You can create generator scripts like the ones ConstGen use to generate the constants properties you want through script. 
+
+**Generate Name** - Already self explanatory, this will also be the name of the generator script.
+
+**Output File Name** - The name of the generated file by the generator which is also the generated file's script name.
+
+Created generators are generated in (ConstGen/Editor/Generated Generators)
+
+- - - -
+
+## Using The Constants ##
+![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/usage.png)
+
+Import the `ConstGenConstants` namespace on which the constants are in and from there you can access them.
