@@ -22,7 +22,7 @@ namespace ConstGen
         public static void WriteIndentedLine(this StringBuilder self, int indentCount, string text)
         {
             self.WriteIndented(indentCount, text);
-            self.Append(Environment.NewLine);
+            self.Append("\n");
         }
 
         private static void WriteIndented(this StringBuilder self, int indentCount, string text)
@@ -51,7 +51,7 @@ namespace ConstGen
         public static void WriteIndentedFormatLine(this StringBuilder self, int indentCount, string text, params object[] param)
         {
             self.WriteFormatted(indentCount, text, param);
-            self.Append(Environment.NewLine);
+            self.Append("\n");
         }
 
         private static void WriteFormatted(this StringBuilder self, int indentCount, string text, params object[] param)
@@ -72,9 +72,14 @@ namespace ConstGen
             for (int i = 0; i < param.Length; i++)
             {
                 self.Append( "using " + param[i] + ";" );
-                self.Append(Environment.NewLine);
+                self.Append("\n");
             }
-            self.Append(Environment.NewLine);
+            self.Append("\n");
+        }
+
+        public static void WriteNewLine( this StringBuilder self )
+        {
+            self.Append("\n");
         }
     }
 }

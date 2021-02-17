@@ -287,7 +287,7 @@ namespace ConstGen
                                                 generator.EscapeDoubleQuote(propertyName));
                                 }
                             }
-                            content.Append(Environment.NewLine);
+                            content.WriteNewLine();
                         }
                     }                    
                 }

@@ -246,7 +246,7 @@ namespace ConstGen
                                     layerIndex++;
                                 }
                             }
-                            content.Append(Environment.NewLine);
+                            content.WriteNewLine();
                         }
                     }                    
                 }

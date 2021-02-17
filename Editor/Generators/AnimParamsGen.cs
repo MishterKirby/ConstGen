@@ -246,7 +246,7 @@ namespace ConstGen
                                                 generator.EscapeDoubleQuote(parameters));
                                 }
                             }
-                            content.Append(Environment.NewLine);
+                            content.WriteNewLine();
                         }
                     }                    
                 }
