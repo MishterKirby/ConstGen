@@ -10,6 +10,7 @@ Unity Constants Generator
 ![ConstGen Window](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/ConstGen.PNG)
 
 [ Tested on 2019.4.15f ]
+
 [ Tested on 2018.4.14f ]
 
 #### Const Generator generates constant properties within static classes replacing the usage of magic strings by holding the value of those strings in the given constant property. ####
