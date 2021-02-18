@@ -98,7 +98,6 @@ namespace ConstGen
             catch (System.Exception)
             {
                 successful = false;
-                throw;
             }
 
             return successful;
