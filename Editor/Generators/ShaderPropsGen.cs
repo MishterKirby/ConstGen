@@ -43,7 +43,9 @@ namespace ConstGen
         private static void InitializeGen()
         {
             CreateGeneratorInsance();
-            RetrieveSettingsData();
+            
+            if ( !RetrieveSettingsData() )
+                return;
 
             if ( !File.Exists(FilePath) ) // check if file exist
             {
@@ -79,13 +81,27 @@ namespace ConstGen
         }
 
 
-        private static void RetrieveSettingsData()
+        private static bool RetrieveSettingsData()
         {
-            ConstGenSettings cgs = ConstantGenerator.GetSettingsFile();
+            bool successful = false;
 
-            instance.regenerateOnMissing = cgs.regenerateOnMissing;
-            instance.updateOnReload = cgs.updateOnReload;
-            instance.oldProperties = cgs._SHADERPROPS;
+            try
+            {
+                ConstGenSettings cgs = ConstantGenerator.GetSettingsFile();
+
+                instance.regenerateOnMissing = cgs.regenerateOnMissing;
+                instance.updateOnReload = cgs.updateOnReload;
+                instance.oldProperties = cgs._SHADERPROPS;
+
+                successful = true;
+            }
+            catch (System.Exception)
+            {
+                successful = false;
+                throw;
+            }
+
+            return successful;
         }
 
         /// <summary>

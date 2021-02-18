@@ -36,7 +36,9 @@ namespace ConstGen
         static AnimLayersGen()
         {
             CreateGeneratorInsance();
-            RetrieveSettingsData();
+            
+            if ( !RetrieveSettingsData() )
+                return;
                 
             if ( !File.Exists(FilePath) ) // check if file exist
             {
@@ -70,13 +72,28 @@ namespace ConstGen
             instance.generator_ = new ConstantGenerator();
         }
 
-        private static void RetrieveSettingsData()
-        {
-            ConstGenSettings cgs = ConstantGenerator.GetSettingsFile();
 
-            instance.regenerateOnMissing = cgs.regenerateOnMissing; 
-            instance.updateOnReload = cgs.updateOnReload;
-            instance.oldLayers = cgs._ANIMLAYERS;
+        private static bool RetrieveSettingsData()
+        {
+            bool successful = false;
+
+            try
+            {
+                ConstGenSettings cgs = ConstantGenerator.GetSettingsFile();
+
+                instance.regenerateOnMissing = cgs.regenerateOnMissing;
+                instance.updateOnReload = cgs.updateOnReload;
+                instance.oldLayers = cgs._ANIMLAYERS;
+
+                successful = true;
+            }
+            catch (System.Exception)
+            {
+                successful = false;
+                throw;
+            }
+
+            return successful;
         }
 
         /// <summary>
