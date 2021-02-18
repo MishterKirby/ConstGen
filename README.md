@@ -115,4 +115,4 @@ Import the `ConstGenConstants` namespace on which the constants are in and from 
 
 - - - -
 
-The base code is build from srndpty's CodeGen: https://github.com/srndpty/CodeGen
+The base code is built from srndpty's CodeGen: https://github.com/srndpty/CodeGen
