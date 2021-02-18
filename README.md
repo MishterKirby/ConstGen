@@ -112,3 +112,7 @@ Import the `ConstGenConstants` namespace on which the constants are in and from 
 - - - -
 
 ![meme](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/no%20magic%20strings%20meme.png)
+
+- - - -
+
+The base code is build from srndpty's CodeGen: https://github.com/srndpty/CodeGen
