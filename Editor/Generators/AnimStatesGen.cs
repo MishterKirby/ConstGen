@@ -316,7 +316,7 @@ namespace ConstGen
                                     ConstGenSettings.AnimLayer animLayer = animState.animLayers[i2];
 
                                     // write layer group header name
-                                    using ( new CurlyBrackets( content, "public static class " + generator.MakeIdentifier(animLayer.name), indentCount ) )
+                                    using ( new CurlyBrackets( content, "public static class " + generator.MakeIdentifier(animLayer.name) + "_Lyr", indentCount ) )
                                     {
                                         // loop through states
                                         for (int i3 = 0; i3 < animLayer.animStates.Count; i3++)
@@ -325,7 +325,7 @@ namespace ConstGen
                                             ConstGenSettings.AnimState state_ = animLayer.animStates[i3];
 
                                             // write state name group at header
-                                            using ( new CurlyBrackets( content, "public static class " + generator.MakeIdentifier(state_.name), indentCount ) )
+                                            using ( new CurlyBrackets( content, "public static class" + generator.MakeIdentifier(state_.name) + "_Stt", indentCount ) )
                                             {
                                                 // write state name
                                                 content.WriteIndentedFormatLine(indentCount, 
