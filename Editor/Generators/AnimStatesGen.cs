@@ -325,7 +325,7 @@ namespace ConstGen
                                             ConstGenSettings.AnimState state_ = animLayer.animStates[i3];
 
                                             // write state name group at header
-                                            using ( new CurlyBrackets( content, "public static class" + generator.MakeIdentifier(state_.name) + "_S", indentCount ) )
+                                            using ( new CurlyBrackets( content, "public static class " + generator.MakeIdentifier(state_.name) + "_S", indentCount ) )
                                             {
                                                 // write state name
                                                 content.WriteIndentedFormatLine(indentCount, 
