@@ -96,7 +96,7 @@ ANOTHER NOTE: In the event of for some reason the generated files has an error a
 
 You can create generator scripts like the ones ConstGen use to generate the constants properties you want through script. 
 
-**Generate Name** - Already self explanatory, this will also be the name of the generator script.
+**Generated Name** - Already self explanatory, this will also be the name of the generator script.
 
 **Output File Name** - The name of the generated file by the generator which is also the generated file's script name.
 
@@ -112,3 +112,7 @@ Import the `ConstGenConstants` namespace on which the constants are in and from 
 - - - -
 
 ![meme](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/no%20magic%20strings%20meme.png)
+
+- - - -
+
+The base code is built from srndpty's CodeGen: https://github.com/srndpty/CodeGen
